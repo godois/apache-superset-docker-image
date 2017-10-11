@@ -45,14 +45,6 @@ RUN pip install pymysql
 
 RUN pip install mysqlclient
 
-RUN fabmanager create-admin --app superset --username admin --password admin --firstname Admin --lastname "" --email admin@example.com
-
-RUN superset db upgrade
-
-RUN superset load_examples
-
-RUN superset init
-
 RUN mkdir -p $ENTRYPOINT_FOLDER
 
 # Put the entrypoint file into the MongoDB directory
