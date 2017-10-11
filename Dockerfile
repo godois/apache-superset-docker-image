@@ -66,11 +66,3 @@ EXPOSE 8088
 
 # Set the entrypoint file
 ENTRYPOINT ["/opt/superset/entry-point.sh"]
-
-#RUN superset runserver
-
-
-#http://54.173.173.213:8088
-
-#mysql://newcoreapi:App2017Jupiter!@187.17.122.82:3306/newcore_staging
-#mysql://root:123@localhost:3306/newcore_test
