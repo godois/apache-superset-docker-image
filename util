@@ -1,3 +1,18 @@
 
+docker kill $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+docker network create --subnet=192.170.0.0/16 example-net
 
 docker build -t godois/apache-superset:1.0 .
+
+docker run -d -it \
+    --name superset-nodeadmin \
+    --hostname="superset.example.com" \
+    --ip 192.170.1.1 \
+    --net example-net \
+    -p 8088:8088 \
+    -v /tmp/superset:/home/superset \
+    godois/apache-superset:1.0
+
+docker exec -i -t superset-nodeadmin /bin/bash
