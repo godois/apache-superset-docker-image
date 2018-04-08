@@ -12,7 +12,7 @@ MAINTAINER Marcio Godoi <souzagodoi@gmail.com>
 USER root
 
 # Superset version
-ARG SUPERSET_VERSION=0.20.3
+ARG SUPERSET_VERSION=0.23.3
 
 # Configure environment
 ENV LANG=C.UTF-8 \
@@ -27,23 +27,22 @@ RUN apt-get update && \
 	build-essential \
 	libssl-dev \ 
 	libffi-dev \
-	python-dev \
 	python3-dev \
-	python-pip \
+	python3-pip \
 	libsasl2-dev \
 	libldap2-dev \
 	libmysqlclient-dev
 
 
-RUN pip install virtualenv
+RUN pip3 install virtualenv
 
-RUN sudo pip install --upgrade setuptools pip
+RUN sudo pip3 install --upgrade setuptools pip
 
-RUN pip install superset
+RUN pip3 install superset
 
-RUN pip install pymysql
+RUN pip3 install pymysql
 
-RUN pip install mysqlclient
+RUN pip3 install mysqlclient
 
 RUN mkdir -p $ENTRYPOINT_FOLDER
 
